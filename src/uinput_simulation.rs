@@ -1,16 +1,14 @@
 use std::sync::LazyLock;
 
 use openaction::*;
-
-use enigo::{
-	Enigo, Settings,
-	agent::{Agent, Token},
-};
+use anyhow::Context;
 use serde::{Deserialize, Serialize};
 use serde_json::{Value::Null, json};
 use tokio::sync::Mutex;
 
-static ENIGO: LazyLock<Mutex<Option<Enigo>>> = LazyLock::new(|| Mutex::new(Option::None));
+use crate::uinput::{Uinput, Token};
+
+static UINPUT: LazyLock<Mutex<Option<Uinput>>> = LazyLock::new(|| Mutex::new(Option::None));
 
 async fn execute_input(value: Option<String>) -> Result<(), anyhow::Error> {
 	let Some(value) = value else {
@@ -20,15 +18,15 @@ async fn execute_input(value: Option<String>) -> Result<(), anyhow::Error> {
 		return Ok(());
 	}
 
-	let mut enigo_guard = ENIGO.lock().await;
+	let mut uinput_guard = UINPUT.lock().await;
 	std::thread::spawn(move || -> Result<(), anyhow::Error> {
-		if enigo_guard.is_none() {
-			enigo_guard.replace(Enigo::new(&Settings::default())?);
+		if uinput_guard.is_none() {
+			uinput_guard.replace(Uinput::new()?);
 		}
-		let enigo = enigo_guard.as_mut().unwrap();
-		let tokens: Vec<Token> = ron::from_str(&value)?;
+		let uinput = uinput_guard.as_mut().context("uinput lock failed")?;
+		let tokens: Vec<Token> = ron::from_str(&value).context("ron from_str failed")?;
 		for token in tokens {
-			enigo.execute(&token).unwrap();
+			uinput.execute(token)?;
 		}
 		Ok(())
 	})
@@ -48,6 +46,7 @@ pub struct InputSimulationSettings {
 }
 
 pub struct InputSimulationAction;
+
 #[async_trait]
 impl Action for InputSimulationAction {
 	const UUID: &'static str = "com.havner.toolbox.uinputsimulation";

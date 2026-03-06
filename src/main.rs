@@ -1,3 +1,4 @@
+mod uinput;
 mod uinput_simulation;
 
 use openaction::*;

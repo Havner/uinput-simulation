@@ -1,8 +1,8 @@
 {
-	"Name": "OpenDeck Starter Pack",
-	"Description": "OpenDeck starter pack plugin",
-	"Author": "Aman Khanna (nekename)",
-	"Version": "2.10.0",
+	"Name": "Havner Toolbox",
+	"Description": "OpenDeck toolbox",
+	"Author": "Lukasz Pawelczyk (havner)",
+	"Version": "0.1",
 	"CodePaths": {
 		"x86_64-unknown-linux-gnu": "x86_64-unknown-linux-gnu/bin/havner-toolbox",
 		"aarch64-unknown-linux-gnu": "aarch64-unknown-linux-gnu/bin/havner-toolbox"

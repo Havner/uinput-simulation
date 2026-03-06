@@ -1,4 +1,5 @@
 mod device;
+mod types;
 
 use std::sync::LazyLock;
 use openaction::*;
@@ -7,7 +8,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::{Value::Null, json};
 use tokio::sync::Mutex;
 
-use device::{Uinput, Token};
+use device::Uinput;
+use types::Token;
 
 static UINPUT: LazyLock<Mutex<Option<Uinput>>> = LazyLock::new(|| Mutex::new(Option::None));
 

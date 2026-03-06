@@ -24,6 +24,8 @@ async fn execute_input(value: Option<String>) -> Result<(), anyhow::Error> {
 	std::thread::spawn(move || -> Result<(), anyhow::Error> {
 		if uinput_guard.is_none() {
 			uinput_guard.replace(Uinput::new()?);
+            // give a little time for initialization so the first event works
+            std::thread::sleep(std::time::Duration::from_millis(200));
 		}
 		let uinput = uinput_guard.as_mut().ok_or(anyhow::anyhow!("lock failed"))?;
 		let tokens: Vec<Token> = ron::from_str(&value)?;

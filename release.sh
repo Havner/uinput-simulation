@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PLUGIN="com.havner.toolkit.sdPlugin"
+PLUGIN="com.havner.uinput.sdPlugin"
 TARGET="x86_64-unknown-linux-gnu"
 TARGETS=("x86_64-unknown-linux-gnu" "aarch64-unknown-linux-gnu")
 INSTALLED_TARGETS="$(rustup target list --installed)"

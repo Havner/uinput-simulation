@@ -1,15 +1,15 @@
 {
-	"Name": "Havner Toolbox",
-	"Description": "OpenDeck toolbox",
+	"Name": "Linux Uinput Simulation",
+	"Description": "Simulates mouse or keyboard input using uinput",
 	"Author": "Lukasz Pawelczyk (havner)",
 	"Version": "0.1",
 	"CodePaths": {
-		"x86_64-unknown-linux-gnu": "x86_64-unknown-linux-gnu/bin/havner-toolbox",
-		"aarch64-unknown-linux-gnu": "aarch64-unknown-linux-gnu/bin/havner-toolbox"
+		"x86_64-unknown-linux-gnu": "x86_64-unknown-linux-gnu/bin/uinput-simulation",
+		"aarch64-unknown-linux-gnu": "aarch64-unknown-linux-gnu/bin/uinput-simulation"
 	},
-	"CodePathLin": "x86_64-unknown-linux-gnu/bin/havner-toolbox",
+	"CodePathLin": "x86_64-unknown-linux-gnu/bin/uinput-simulation",
 	"Icon": "icons/plugin",
-	"Category": "Havner Toolbox",
+	"Category": "Input Simulation",
 	"OS": [
 		{
 			"Platform": "linux"
@@ -18,12 +18,12 @@
 	"Actions": [
 		{
 			"Icon": "icons/uinputSimulation",
-			"Name": "Uinput Simulator",
+			"Name": "Simulate Input",
 			"States": [{ "Image": "actionDefaultImage" }],
 			"Controllers": ["Keypad", "Encoder"],
 			"SupportedInMultiActions": true,
 			"Tooltip": "Simulate mouse or keyboard input",
-			"UUID": "com.havner.toolbox.uinputsimulation",
+			"UUID": "com.havner.uinput.simulation",
 			"PropertyInspectorPath": "propertyInspector/uinputSimulation.html"
 		}
 	]

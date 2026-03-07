@@ -1,5 +1,5 @@
 [package]
-name = "havner-toolbox"
+name = "uinput-simulation"
 authors = [ "Lukasz Pawelczyk (havner)" ]
 license = "GPL-3.0-or-later"
 edition = "2024"

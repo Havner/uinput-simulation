@@ -24,7 +24,7 @@ impl Uinput {
         rel.insert(RelativeAxisCode::REL_HWHEEL);
 
         let device = VirtualDevice::builder()?
-            .name("havner toolkit uinput device")
+            .name("OpenDeck uinput simulation device")
             .with_keys(&keys)?
             .with_relative_axes(&rel)?
             .build()?;

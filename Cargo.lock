@@ -312,21 +312,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 
 [[package]]
-name = "havner-toolbox"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "env_logger",
- "evdev",
- "log",
- "openaction",
- "ron",
- "serde",
- "serde_json",
- "tokio",
-]
-
-[[package]]
 name = "http"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -824,6 +809,21 @@ name = "typenum"
 version = "1.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "562d481066bde0658276a35467c4af00bdc6ee726305698a55b86e61d7ad82bb"
+
+[[package]]
+name = "uinput-simulation"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "env_logger",
+ "evdev",
+ "log",
+ "openaction",
+ "ron",
+ "serde",
+ "serde_json",
+ "tokio",
+]
 
 [[package]]
 name = "unicode-ident"

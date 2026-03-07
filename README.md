@@ -66,7 +66,7 @@ To compile the plugin simply run:
 ```
 
 In the checked out sources. Providing you have rust installed properly this will
-create `com.havner.toolkit.sdPlugin` directory. Put it in
+create `com.havner.uinput.sdPlugin` directory. Put it in
 `~/.config/opendeck/plugins` and restart OpenDeck.
 
 Make sure you have write access do `/dev/uinput`. Either through the rule

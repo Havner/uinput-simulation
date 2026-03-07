@@ -53,7 +53,7 @@ pub struct SimulationAction;
 
 #[async_trait]
 impl Action for SimulationAction {
-    const UUID: &'static str = "com.havner.toolbox.uinputsimulation";
+    const UUID: &'static str = "com.havner.uinput.simulation";
     type Settings = SimulationSettings;
 
     async fn key_down(

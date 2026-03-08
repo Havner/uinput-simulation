@@ -1,5 +1,6 @@
 [package]
 name = "uinput-simulation"
+version = "0.1.1"
 authors = [ "Lukasz Pawelczyk (havner)" ]
 license = "GPL-3.0-or-later"
 edition = "2024"

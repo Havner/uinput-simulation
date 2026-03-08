@@ -2,7 +2,7 @@
 	"Name": "Linux Uinput Simulation",
 	"Description": "Simulates mouse or keyboard input using uinput",
 	"Author": "Lukasz Pawelczyk (havner)",
-	"Version": "0.1",
+	"Version": "0.1.1",
 	"CodePaths": {
 		"x86_64-unknown-linux-gnu": "x86_64-unknown-linux-gnu/bin/uinput-simulation",
 		"aarch64-unknown-linux-gnu": "aarch64-unknown-linux-gnu/bin/uinput-simulation"

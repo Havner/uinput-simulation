@@ -40,6 +40,10 @@ impl Uinput {
             Token::Button(b, d) => self.button(b, d),
             Token::MoveMouse(x, y, c) => self.move_mouse(x, y, c),
             Token::Scroll(l, a) => self.scroll(l, a),
+            Token::Delay(ms) => {
+                std::thread::sleep(std::time::Duration::from_millis(ms));
+                Ok(())
+            },
         }
     }
 

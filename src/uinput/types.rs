@@ -361,4 +361,7 @@ pub(super) enum Token {
     #[serde(alias = "S")]
     #[serde(alias = "s")]
     Scroll(i32, #[serde(default)] ScrollAxis),
+    #[serde(alias = "D")]
+    #[serde(alias = "d")]
+    Delay(u64),
 }

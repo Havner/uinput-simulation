@@ -81,13 +81,14 @@
 		</div>
 		<details open>
 			<summary style="margin-bottom: 0.25rem; font-size: 1.25rem">Details</summary>
-			<code style="word-break: break-all">[ m(10,10,r), s(5), b(l), k(LeftCtrl,p), k(A), k(LeftCtrl,r) ]</code>
+			<code style="word-break: break-all">[ m(10,10,r), s(5), b(l), d(100), k(LeftCtrl,p), k(A), k(LeftCtrl,r) ]</code>
 			<p>The example above becomes something like this:</p>
 			<!-- deno-fmt-ignore -->
 			<code style="white-space: pre;">[
 	MoveMouse(10, 10, Relative),
 	Scroll(5, Vertical),
 	Button(Left, Click),
+	Delay(100),
 	Key(LeftCtrl, Press),
 	Key(A, Click),
 	Key(LeftCtrl, Release),

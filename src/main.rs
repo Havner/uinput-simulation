@@ -10,6 +10,8 @@ impl global_events::GlobalEventHandler for GlobalEventHandler {}
 async fn main() -> OpenActionResult<()> {
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("debug")).init();
 
+    uinput::init().await;
+
     global_events::set_global_event_handler(&GlobalEventHandler);
     register_action(uinput::SimulationAction).await;
 

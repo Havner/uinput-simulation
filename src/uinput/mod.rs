@@ -12,6 +12,18 @@ use types::Token;
 
 static UINPUT: LazyLock<Mutex<Option<Uinput>>> = LazyLock::new(|| Mutex::new(Option::None));
 
+pub async fn init() {
+    let mut uinput_guard = UINPUT.lock().await;
+    if uinput_guard.is_none() {
+        match Uinput::new() {
+            Ok(uinput) => {
+                uinput_guard.replace(uinput);
+            }
+            Err(error) => log::warn!("Failed to create uinput devices: {error}"),
+        }
+    }
+}
+
 async fn execute_input(value: Option<String>) -> Result<(), anyhow::Error> {
     let Some(value) = value else {
         return Ok(());
@@ -19,7 +31,6 @@ async fn execute_input(value: Option<String>) -> Result<(), anyhow::Error> {
     if value.trim().is_empty() {
         return Ok(());
     }
-
     let mut uinput_guard = UINPUT.lock().await;
     std::thread::spawn(move || -> Result<(), anyhow::Error> {
         if uinput_guard.is_none() {

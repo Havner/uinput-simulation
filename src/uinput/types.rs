@@ -1,8 +1,9 @@
 use evdev::KeyCode;
 use serde::{Deserialize, Serialize};
+use strum::EnumIter;
 
 #[repr(u16)]
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, EnumIter)]
 pub(super) enum Key {
     LeftShift = KeyCode::KEY_LEFTSHIFT.0,
     RightShift = KeyCode::KEY_RIGHTSHIFT.0,
@@ -274,7 +275,7 @@ impl Key {
 }
 
 #[repr(u16)]
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, EnumIter)]
 pub(super) enum Button {
     #[serde(alias = "L")]
     #[serde(alias = "l")]

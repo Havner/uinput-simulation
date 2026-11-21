@@ -81,7 +81,7 @@
 		</div>
 		<details open>
 			<summary style="margin-bottom: 0.25rem; font-size: 1.25rem">Details</summary>
-			<code style="word-break: break-all">[ m(10,10,r), s(5), b(l), d(100), k(LeftCtrl,p), k(A), k(LeftCtrl,r) ]</code>
+			<code style="word-break: break-all">[ m(10,10,r), s(5), b(l), d(100), k(LeftCtrl,p), k(A), k(LeftCtrl,r), j(1) ]</code>
 			<p>The example above becomes something like this:</p>
 			<!-- deno-fmt-ignore -->
 			<code style="white-space: pre;">[
@@ -92,6 +92,7 @@
 	Key(LeftCtrl, Press),
 	Key(A, Click),
 	Key(LeftCtrl, Release),
+	Joystick(1, Click),
 ]</code>
 			<p>
 				As you can see, <code>Vertical</code> is the default for the <code>Scroll</code> action if an axis is not specified,
@@ -108,7 +109,9 @@
 				Be mindful as they are case sensitive.<br/>
 
 				The raw list of keycodes that can be used with 'kc' (as a string, e.g: "KEY_A") or 'r' (as an int) is available here:
-				<span style="color: dodgerblue; cursor: pointer;" onclick="window.open('https://github.com/emberian/evdev/blob/main/src/scancodes.rs#L26', '_blank');">here</span>.
+				<span style="color: dodgerblue; cursor: pointer;" onclick="window.open('https://github.com/emberian/evdev/blob/main/src/scancodes.rs#L26', '_blank');">here</span>.<br/>
+
+				'j' presses a button (1 to 128) on a virtual joystick, a button box (with two idle X/Y axes only needed for detection), a click holds the button for 50 ms.
 			</p>
 		</details>
 	</body>

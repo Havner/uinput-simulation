@@ -67,7 +67,7 @@ impl Uinput {
         }
 
         let raw = VirtualDevice::builder()?
-            .name("uinput-simulation virtual raw")
+            .name("OpenDeck virtual raw")
             .with_keys(&codes)?
             .build()?;
 
@@ -77,7 +77,7 @@ impl Uinput {
         }
 
         let keyboard = VirtualDevice::builder()?
-            .name("uinput-simulation virtual keyboard")
+            .name("OpenDeck virtual keyboard")
             .with_keys(&keys)?
             .build()?;
 
@@ -93,7 +93,7 @@ impl Uinput {
         }
 
         let mouse = VirtualDevice::builder()?
-            .name("uinput-simulation virtual mouse")
+            .name("OpenDeck virtual mouse")
             .with_keys(&buttons)?
             .with_relative_axes(&rel)?
             .build()?;
@@ -107,9 +107,10 @@ impl Uinput {
         // 1209:0001 is the test PID, meant for private use.
         // Two axes (X/Y) are for detection purposes only, so proton can figure
         // out it's a joystick even without udev access (proton in a container).
+        // SDL blacklists devices with names starting with "uinput", avoid.
         let idle_axis = AbsInfo::new(0, -32767, 32767, 0, 0, 0);
         let joystick = VirtualDevice::builder()?
-            .name("uinput-simulation virtual joystick")
+            .name("OpenDeck virtual joystick")
             .input_id(InputId::new(BusType::BUS_VIRTUAL, 0x1209, 0x0001, 1))
             .with_keys(&joy_buttons)?
             .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_X, idle_axis))?
